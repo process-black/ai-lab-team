@@ -10,6 +10,7 @@ const llog = require('learninglab-log');
  * @param {string} data.glossaryText The glossary definition
  * @param {string} data.foeText The foe's argument
  * @param {string} data.friendText The friend's argument
+ * @param {string} data.itDependsText The it-depends bot's middle ground perspective
  * @returns {Promise<object>} The Airtable response
  */
 async function uploadDebateToAirtable(data) {
@@ -39,7 +40,8 @@ async function uploadDebateToAirtable(data) {
               'PositionText': data.positionText,
               'GlossaryText': data.glossaryText,
               'FoeText': data.foeText,
-              'FriendText': data.friendText
+              'FriendText': data.friendText,
+              'ItDependsText': data.itDependsText
             }
           }
         ]

@@ -3,6 +3,7 @@ const glossaryBot = require('./glossary');
 const positionBot = require('./position');
 const foeBot = require('./foe');
 const friendBot = require('./friend');
+const itDependsBot = require('./it-depends');
 const heroImageBot = require('./hero-image');
 const { uploadDebateToAirtable, extractTermFromGlossary } = require('../../utils/airtable');
 
@@ -71,7 +72,21 @@ module.exports = async ({ client, message, say, event }) => {
         // Wait a moment between bot responses
         await new Promise(resolve => setTimeout(resolve, 2000));
         
-        // Step 5: Hero Image bot generates a visual representation of the debate
+        // Step 5: It-Depends bot presents a middle ground perspective
+        llog.cyan("Running It-Depends Bot");
+        const itDependsResponse = await itDependsBot({
+            client,
+            message,
+            glossaryResponse,
+            positionResponse,
+            foeResponse,
+            friendResponse
+        });
+        
+        // Wait a moment between bot responses
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        
+        // Step 6: Hero Image bot generates a visual representation of the debate
         // Commented out for now - will be implemented later
         /*
         llog.cyan("Running Hero Image Bot");
@@ -81,7 +96,8 @@ module.exports = async ({ client, message, say, event }) => {
             glossaryResponse,
             positionResponse,
             foeResponse,
-            friendResponse
+            friendResponse,
+            itDependsResponse
         });
         */
         
@@ -100,7 +116,8 @@ module.exports = async ({ client, message, say, event }) => {
                 positionText: positionResponse,
                 glossaryText: glossaryText,
                 foeText: foeResponse,
-                friendText: friendResponse
+                friendText: friendResponse,
+                itDependsText: itDependsResponse
             });
             llog.green("Successfully uploaded debate data to Airtable");
         } catch (airtableError) {

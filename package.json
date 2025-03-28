@@ -1,0 +1,35 @@
+{
+  "name": "ai-lab-team",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "NODE_ENV=dev nodemon ./app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/process-black/ai-lab-team.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/process-black/ai-lab-team/issues"
+  },
+  "homepage": "https://github.com/process-black/ai-lab-team#readme",
+  "dependencies": {
+    "@slack/bolt": "^4.2.1",
+    "airtable": "^0.12.2",
+    "axios": "^1.8.2",
+    "chokidar": "^4.0.3",
+    "clear": "^0.1.0",
+    "dotenv": "^16.4.7",
+    "figlet": "^1.8.0",
+    "learninglab-log": "^1.0.2",
+    "node-cron": "^3.0.3",
+    "openai": "^4.86.2",
+    "replicate": "^1.0.1",
+    "yargs": "^17.7.2"
+  }
+}

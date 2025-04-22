@@ -2,7 +2,7 @@
 # Usage: ./scripts/heroku_env_push.sh [HEROKU_APP_NAME]
 # Loops through .env.dev in the project root and sets Heroku config vars
 
-ENV_FILE=".env"
+ENV_FILE=".env.heroku"
 HEROKU_APP_NAME="$1"
 
 if [ ! -f "$ENV_FILE" ]; then

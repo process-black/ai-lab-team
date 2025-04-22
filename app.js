@@ -11,6 +11,16 @@ require("dotenv").config({
   path: path.resolve(__dirname, `.env.${process.env.NODE_ENV}`),
 });
 
+// Log the Slack token values (partially, for safety)
+function safeLog(token, name) {
+  if (!token) return `${name}: NOT SET`;
+  return `${name}: ${token.slice(0, 6)}...${token.slice(-4)} (length: ${token.length})`;
+}
+
+console.log(safeLog(process.env.SLACK_BOT_TOKEN, 'SLACK_BOT_TOKEN'));
+console.log(safeLog(process.env.SLACK_SIGNING_SECRET, 'SLACK_SIGNING_SECRET'));
+console.log(safeLog(process.env.SLACK_APP_TOKEN, 'SLACK_APP_TOKEN'));
+
 const app = new App({
   token: process.env.SLACK_BOT_TOKEN,
   signingSecret: process.env.SLACK_SIGNING_SECRET,

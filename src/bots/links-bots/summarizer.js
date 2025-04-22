@@ -71,11 +71,11 @@ ${scraperResult.text}` }
         fields.OgImageUrl = ogImageUrl;
         fields.OgImageAttachment = [{ url: ogImageUrl }];
       }
-      const [{ id }] = await base(process.env.AIRTABLE_TABLE_NAME || "News").create([{ fields }]);
+      const [{ id }] = await base(process.env.AIRTABLE_TABLE_NAME || "Links").create([{ fields }]);
       // Build record URL with table and view if provided
       const baseId = process.env.AIRTABLE_BASE_ID;
-      const tableId = process.env.AIRTABLE_NEWS_TABLE_ID;
-      const viewId = process.env.AIRTABLE_NEWS_VIEW_ID;
+      const tableId = process.env.AIRTABLE_LINKS_TABLE_ID;
+      const viewId = process.env.AIRTABLE_LINKS_VIEW_ID;
       if (baseId && tableId && viewId) {
         recordUrl = `https://airtable.com/${baseId}/${tableId}/${viewId}/${id}?blocks=hide`;
       } else {

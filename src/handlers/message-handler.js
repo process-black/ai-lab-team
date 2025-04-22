@@ -1,7 +1,7 @@
 const llog = require('learninglab-log');
 const bkc = require('../bots/bkc-bots');
 const debateBots = require('../bots/debate-bots');
-const newsBots = require('../bots/news-bots');
+const linksBots = require('../bots/links-bots');
 
 const isBotMessage = (message) => {
     return message.subtype === "bot_message";
@@ -42,9 +42,9 @@ exports.parseAll = async ({ client, message, say, event }) => {
         if (message.channel === process.env.SLACK_DEBATE_CHANNEL) {
             llog.magenta("Message in debate channel, processing with debate bots");
             await debateBots({ client, message, say, event });
-        } else if (message.channel === process.env.SLACK_NEWS_CHANNEL) {
-            llog.magenta("Message in news channel, processing with news bots");
-            await newsBots({ client, message, say, event });
+        } else if (message.channel === process.env.SLACK_UTIL_SCRAPE_LINKS_CHANNEL) {
+            llog.magenta("Message in links scrape channel, processing with links-bots");
+            await linksBots({ client, message, say, event });
         } else {
             // Process with bkc bots for other channels
             const result = await bkc({ client, message, say, event });

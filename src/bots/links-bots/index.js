@@ -29,7 +29,7 @@ const wait = (seconds) => new Promise(resolve => setTimeout(resolve, seconds*100
 
 module.exports = async ({ client, message, say, event }) => {
     llog.magenta(`Airtable base: ${process.env.AIRTABLE_BASE_ID}, table: ${process.env.AIRTABLE_TABLE_NAME}, token: ${process.env.AIRTABLE_API_TOKEN ? 'set' : 'not set'}`);
-    llog.cyan("got a message in the news channel; news bots will respond")
+    llog.cyan("got a message in the links channel; links-bots will respond")
     const links = extractLinks(message);
     if (!links.length) {
         llog.yellow("No links found in message");

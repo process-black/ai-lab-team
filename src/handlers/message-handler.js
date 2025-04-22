@@ -1,6 +1,7 @@
 const llog = require('learninglab-log');
 const bkc = require('../bots/bkc-bots');
 const debateBots = require('../bots/debate-bots');
+const newsBots = require('../bots/news-bots');
 
 const isBotMessage = (message) => {
     return message.subtype === "bot_message";
@@ -21,10 +22,10 @@ exports.parseAll = async ({ client, message, say, event }) => {
     llog.magenta(`SLACK_DEBATE_CHANNEL env var: ${process.env.SLACK_DEBATE_CHANNEL}`);
 
         // Check if the message is a bot message
-    // if (isBotMessage(message)) {
-    //     llog.yellow("Skipped: Bot message detected");
-    //     return;
-    // }
+    if (isBotMessage(message)) {
+        llog.yellow("Skipped: Bot message detected");
+        return;
+    }
 
     // Check if the message is in a subthread
     if (isInSubthread(message)) {
@@ -41,6 +42,9 @@ exports.parseAll = async ({ client, message, say, event }) => {
         if (message.channel === process.env.SLACK_DEBATE_CHANNEL) {
             llog.magenta("Message in debate channel, processing with debate bots");
             await debateBots({ client, message, say, event });
+        } else if (message.channel === process.env.SLACK_NEWS_CHANNEL) {
+            llog.magenta("Message in news channel, processing with news bots");
+            await newsBots({ client, message, say, event });
         } else {
             // Process with bkc bots for other channels
             const result = await bkc({ client, message, say, event });

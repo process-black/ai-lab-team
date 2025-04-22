@@ -19,16 +19,20 @@
   },
   "homepage": "https://github.com/process-black/ai-lab-team#readme",
   "dependencies": {
+    "@mozilla/readability": "^0.6.0",
     "@slack/bolt": "^4.2.1",
     "airtable": "^0.12.2",
-    "axios": "^1.8.2",
+    "axios": "^1.8.4",
+    "cheerio": "^1.0.0",
     "chokidar": "^4.0.3",
     "clear": "^0.1.0",
     "dotenv": "^16.4.7",
     "figlet": "^1.8.0",
+    "jsdom": "^26.1.0",
     "learninglab-log": "^1.0.2",
     "node-cron": "^3.0.3",
-    "openai": "^4.86.2",
+    "openai": "^4.95.0",
+    "playwright": "^1.52.0",
     "replicate": "^1.0.1",
     "yargs": "^17.7.2"
   }

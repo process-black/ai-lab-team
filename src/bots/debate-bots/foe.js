@@ -22,7 +22,7 @@ const foeBot = async ({client, message, glossaryResponse}) => {
                 content: `
                 Original message: ${message.text}
                 
-                Glossary bot's definition: ${glossaryResponse}
+                Glossary bot's definition: ${glossaryResponse.text}
                 
                 Argue AGAINST the user's position regarding this term. Present a well-reasoned counterargument that challenges the user's assumptions and offers alternative perspectives. Be thorough but concise (400-500 words).`
             }

@@ -33,6 +33,17 @@ const app = new App({
 // app.message("testing testing", handleMessages.testing);
 app.message(/.*/, handleMessages.parseAll);
 
+// app.event("file_shared", eventHandler.fileShared);
+// app.event("reaction_added", eventHandler.reactionAdded);
+// app.event("reaction_removed", eventHandler.reactionRemoved);
+// app.event('pin_added', eventHandler.pinAdded);
+// app.event('pin_removed', eventHandler.pinRemoved);
+// app.event('app_home_opened', eventHandler.appHomeOpened);
+// app.event('message', eventHandler.message);
+// app.event(/.*/, eventHandler.log);
+
+
+
 (async () => {
 
   if (!fs.existsSync("_temp")) {
